@@ -1,5 +1,10 @@
 # PrintUtil
-该库使用表达式树和缓存的实现了对象信息的打印，其性能效率要远高于现有的打印库ObjectDumper和Newtonsoft.Json库。
+该库使用表达式树和缓存的实现了对象信息的打印，其性能效率要远高于现有的打印库ObjectDumper和Newtonsoft.Json库。<br><br>
+**注意：**
+* 本代码并为十分完善，在进行字段打印和属性打印时需要在代码中进行修改。（PrintUtil文件360行和361行进行切换）
+* 代码中的测试用例较为单一，测试结果并不精确，仅作为参考使用。
+* 本人并没有可刻意贬低其它库，此代码仅仅为学习分析，希望以此抛砖引玉，可以得到更多的评价和看法。
+* 本代码只做了简单实现，可自行修改代码以达到更适合自己使用的情况。
 
 ## 特性
 1.提供IgnorePrintAttribue。如果该Attribue标识在字段或属性上，则该字段或属性将会被忽略打印。如果该Attribue标识在ToString方法上时，则在打印该对象时会忽略对象的ToString方法实现，使用默认的打印显示。<br>
@@ -94,7 +99,7 @@ Console.WriteLine(person.Print()); //因为使用Print重写了ToString方法，
 ![image](https://github.com/remarxk/PrintUtil/assets/86111678/b2ab8e48-f9aa-4fe2-a5ea-b6aa7d49eb1d)
 
 ## 性能测试
-使用BenchmarkDotNet库进行测试，与ObjectDumper，Newtonsoft.Json库进行性能比较。
+使用BenchmarkDotNet库进行测试，与ObjectDumper，Newtonsoft.Json库进行性能比较。**测试数据较为单一，仅作参考！！**
 ### 测试代码
 移除掉Person中的Price属性后，执行以下代码进行测试
 ```C#
